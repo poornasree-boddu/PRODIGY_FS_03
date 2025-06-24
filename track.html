@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Tracking</title>
+</head>
+<body>
+  <h2>Track Your Order</h2>
+  <input type="text" id="order-id" placeholder="Enter Order ID">
+  <button onclick="trackOrder()">Track</button>
+  <div id="tracking-result"></div>
+
+  <script>
+    function trackOrder() {
+      const orderId = document.getElementById('order-id').value.trim();
+      const result = document.getElementById('tracking-result');
+      const orderData = localStorage.getItem(`order_${orderId}`);
+
+      if (!orderData) {
+        result.innerHTML = "⚠️ Order ID not found.";
+        return;
+      }
+
+      const order = JSON.parse(orderData);
+      let html = `<p><strong>Order ID:</strong> ${order.id}</p>`;
+      html += `<p><strong>Date:</strong> ${order.date}</p>`;
+      html += `<h3>Items:</h3><ul>`;
+      for (const key in order.items) {
+        const item = order.items[key];
+        html += `<li>${item.name} × ${item.quantity} = ₹${item.price * item.quantity}</li>`;
+      }
+      html += `</ul>`;
+
+      result.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

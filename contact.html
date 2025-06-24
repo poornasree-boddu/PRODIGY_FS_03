@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Support</title>
+</head>
+<body>
+  <h2>Contact Customer Support</h2>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" placeholder="Your Name" required><br><br>
+    <input type="email" placeholder="Your Email" required><br><br>
+    <textarea placeholder="Your Message" required></textarea><br><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    function sendMessage(e) {
+      e.preventDefault();
+      alert("✅ Message sent! We'll contact you soon.");
+    }
+  </script>
+</body>
+</html>

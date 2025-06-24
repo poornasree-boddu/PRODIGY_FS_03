@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Store E-commerce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Local Store</h1>
+  </header>
+
+  <main>
+    <!-- 🔄 Sort & Filter -->
+    <section class="controls">
+      <label for="sort">Sort by: </label>
+      <select id="sort" onchange="sortProducts()">
+        <option value="default">Default</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name">Name (A-Z)</option>
+      </select>
+
+      <h3>Filter by Category:</h3>
+      <label><input type="checkbox" value="Fruit" onchange="filterProducts()"> Fruit</label>
+      <label><input type="checkbox" value="Vegetable" onchange="filterProducts()"> Vegetable</label>
+    </section>
+
+    <!-- 🛍️ Product Listings -->
+    <section id="products" class="product-list"></section>
+
+    <!-- 🛒 Cart -->
+    <aside id="cart" class="cart">
+      <h2>🛒 Cart</h2>
+      <div id="cart-items"></div>
+      <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+      <button onclick="placeOrder()">Place Order</button>
+    </aside>
+  </main>
+
+  <!-- 📦 Links to Optional Pages -->
+  <footer>
+    <p>
+      <a href="track.html">Track Order</a> |
+      <a href="contact.html">Customer Support</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
